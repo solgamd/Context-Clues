@@ -1,16 +1,14 @@
 $(document).ready(function () {
     var i = 1;
 
-    while (i < 100) { // Appends all 100 Accusations onto document upon load
-        
-        //i++;
-        var h3 = ('<h3></h3>');
+    while (i < 101) { // Appends all 100 Accusations onto document upon load
         var h3text = `Accusation ${i}`;
-        $('h3').text(h3text);
+        var h3 = '<h3>' + `${h3text}` + '</h3>';
+        i++;
         $('body').append(h3);
-        
+
     };
-    
+
 
     $('h3').click(function () {  // Randomly generate accusation upon click / DO NOT PUT THIS IN LOOP OR OUTSIDE DOC.READY
         randomHomie = homies[Math.floor(Math.random() * homies.length)];
@@ -19,13 +17,12 @@ $(document).ready(function () {
 
         var i = 1;
         if (i < 101) {
-            
             alert(
-                `Accusation ${i}: I accuse ${randomHomie} with the ${randomImplement} in ${randomLocale}!`)
+                `${h3text.value}: I accuse ${randomHomie} with the ${randomImplement} in ${randomLocale}!`)
             console.log('worked');
             //i++;
         }
-        
+
     })
 
     var homies = ['Homer', 'Marge', 'Bart', 'Lisa', 'Maggie'];
