@@ -1,28 +1,22 @@
 $(document).ready(function () {
-    var i = 1;
-
-    while (i < 101) { // Appends all 100 Accusations onto document upon load
-        var h3text = `Accusation ${i}`;
-        var h3 = '<h3>' + `${h3text}` + '</h3>';
-        i++;
+  
+    for (var i = 1; i < 101; i++) {
+        var h3 = $('<h3>' + `Accusation ${i}` + '</h3>');
         $('body').append(h3);
+        h3.click(() => console.log(`Accusation ${i}`));
+    }
 
-    };
-
-
-    $('h3').click(function () {  // Randomly generate accusation upon click / DO NOT PUT THIS IN LOOP OR OUTSIDE DOC.READY
+    $('h3').click(function () {  // Generate Accusation X upon click / DO NOT PUT THIS IN LOOP OR OUTSIDE DOC.READY
         randomHomie = homies[Math.floor(Math.random() * homies.length)];
         randomImplement = implements[Math.floor(Math.random() * implements.length)];
         randomLocale = locales[Math.floor(Math.random() * locales.length)];
 
-        var i = 1;
-        if (i < 101) {
-            alert(
-                `${h3text.value}: I accuse ${randomHomie} with the ${randomImplement} in ${randomLocale}!`)
+        // var i = 1;
+        if (i < 101) { //Try a closure here / Problem: "Accusation 100"
+            alert(`${'h3text'}: I accuse ${randomHomie} with the ${randomImplement} in ${randomLocale}!`)
             console.log('worked');
-            //i++;
         }
-
+        
     })
 
     var homies = ['Homer', 'Marge', 'Bart', 'Lisa', 'Maggie'];
