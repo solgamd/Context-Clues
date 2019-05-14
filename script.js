@@ -1,23 +1,4 @@
 $(document).ready(function () {
-  
-    for (var i = 1; i < 101; i++) {
-        var h3 = $('<h3>' + `Accusation ${i}` + '</h3>');
-        $('body').append(h3);
-        h3.click(() => console.log(`Accusation ${i}`));
-    }
-
-    $('h3').click(function () {  // Generate Accusation X upon click / DO NOT PUT THIS IN LOOP OR OUTSIDE DOC.READY
-        randomHomie = homies[Math.floor(Math.random() * homies.length)];
-        randomImplement = implements[Math.floor(Math.random() * implements.length)];
-        randomLocale = locales[Math.floor(Math.random() * locales.length)];
-
-        // var i = 1;
-        if (i < 101) { //Try a closure here / Problem: "Accusation 100"
-            alert(`${'h3text'}: I accuse ${randomHomie} with the ${randomImplement} in ${randomLocale}!`)
-            console.log('worked');
-        }
-        
-    })
 
     var homies = ['Homer', 'Marge', 'Bart', 'Lisa', 'Maggie'];
 
@@ -32,10 +13,21 @@ $(document).ready(function () {
         'Mr. Burns\'s wooden teeth cellar', 'your mom\'s lingerie drawer',
         'the treehouse of horrors', 'that vague area in the nondescript place'];
 
-    var randomHomie;
-    var randomImplement;
-    var randomLocale;
+    var randomHomie = homies[Math.floor(Math.random() * homies.length)];
+    var randomImplement = implements[Math.floor(Math.random() * implements.length)];
+    var randomLocale = locales[Math.floor(Math.random() * locales.length)];
 
+    for (var i = 1; i <= 100; i++) {        // GENERATES LIST OF ACCUSATIONS
+        var h3 = $('<h3></h3>');
+        h3.text(`Accusation ${i}`);
+        $('body').append(h3);
+        accuse(i, h3);
+    }
+
+    function accuse(alertText, h3) {
+        var alertText = `Accusation ${i}: I accuse ${randomHomie} with the ${randomImplement} in ${randomLocale}!`;
+        h3.click(() => alert(alertText))
+    }
 })
 
 
