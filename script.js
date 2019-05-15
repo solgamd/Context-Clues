@@ -13,21 +13,20 @@ $(document).ready(function () {
         'Mr. Burns\'s wooden teeth cellar', 'your mom\'s lingerie drawer',
         'the treehouse of horrors', 'that vague area in the nondescript place'];
 
-    var randomHomie = homies[Math.floor(Math.random() * homies.length)];
-    var randomImplement = implements[Math.floor(Math.random() * implements.length)];
-    var randomLocale = locales[Math.floor(Math.random() * locales.length)];
-    
-
     for (var i = 1; i <= 100; i++) {        // GENERATES LIST OF ACCUSATIONS
         var h3 = $('<h3></h3>');
         h3.text(`Accusation ${i}`);
         $('body').append(h3);
         h3.click(accuse(i));
+        accuse();
     }
 
-    function accuse() {                // POP-UP ALERT WITH RANDOM ACCUSATION
+    function accuse() {
+        var randomHomie = homies[Math.floor(Math.random() * homies.length)];
+        var randomImplement = implements[Math.floor(Math.random() * implements.length)];
+        var randomLocale = locales[Math.floor(Math.random() * locales.length)];          // POP-UP ALERT WITH RANDOM ACCUSATION
         var alertText = `Accusation ${i}: I accuse ${randomHomie} with the ${randomImplement} in ${randomLocale}!`;
-        return function() {
+        return function () {
             alert(alertText);
         };
     }
